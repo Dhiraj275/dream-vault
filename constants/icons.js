@@ -11,6 +11,9 @@ import logout from "../assets/icons/logout.png";
 import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
+import friends from "../assets/icons/friends.png";
+import share from "../assets/icons/share.png";
+
 
 export default {
   play,
@@ -26,4 +29,6 @@ export default {
   logout,
   eyeHide,
   eye,
+  friends,
+  share
 };

@@ -49,15 +49,15 @@ const RootLayout = () => {
         }}
       />
       <Tabs.Screen
-        name='bookmark'
+        name='friends'
         options={{
           headerShown: false,
           tabBarIcon: ({ focused, color }) => (
             <TabIcon
-              name={"Bookmark"}
+              name={"Friends"}
               focused={focused}
               color={color}
-              icon={icons.bookmark}
+              icon={icons.friends}
             />
           )
         }}

@@ -1,10 +1,17 @@
 import React, { useState } from 'react'
-import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TextInput, TouchableOpacity, View, TextInputProps } from 'react-native'
 import { icons } from '../constants'
 
+interface FormFieldProps extends TextInputProps {
+    title: string;
+    placeholder?: string;
+    value: string;
+    handleChangeText: (text: string) => void
+    otherStyle?: String
 
-const FormField = ({ title, placeholder, value, handleChangeText, otherStyle, ...props }) => {
-    const [showPassword, setShowPassword] = useState(false)
+}
+const FormField = ({ title, placeholder, value, handleChangeText, otherStyle, ...textInputProps }: FormFieldProps) => {
+    const [showPassword, setShowPassword] = useState(title === "Password")
     return (
         <View className={`space-y-2 ${otherStyle}`}>
             <Text className="text-gray-100 text-base font-pmedium">{title}</Text>
@@ -12,10 +19,10 @@ const FormField = ({ title, placeholder, value, handleChangeText, otherStyle, ..
                 <TextInput
                     className="flex-1 text-white font-psemibold text-base"
                     value={value}
+                    onChangeText={handleChangeText}
                     placeholder={placeholder}
-                    handleChangeText={handleChangeText}
-                    secureTextEntry={title === "Password" && !showPassword}
-                    {...props}
+                    secureTextEntry={showPassword}
+                    {...textInputProps}
                 />
                 {
                     title === "Password" &&

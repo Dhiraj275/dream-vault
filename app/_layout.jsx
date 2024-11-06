@@ -1,8 +1,9 @@
 import { useFonts } from 'expo-font';
-import { Slot, SplashScreen, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import GlobalProvider from '../provider/GlobalProvider';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [fontsLoaded, error] = useFonts({
     "Poppins-Black": require("../assets/fonts/Poppins-Black.ttf"),
@@ -19,18 +20,22 @@ export default function RootLayout() {
     if (error) throw error;
 
     if (fontsLoaded) {
-      SplashScreen.hideAsync();
     }
   }, [fontsLoaded, error]);
 
   if (!fontsLoaded && !error) {
     return null;
   }
+
   return (
-    <Stack>
-      <Stack.Screen name='index' options={{headerShown:false}}/>
-      <Stack.Screen name='(tabs)' options={{headerShown:false}}/>
-      <Stack.Screen name='(auth)' options={{headerShown:false}}/>
-    </Stack>
+    <GlobalProvider>
+      <Stack>
+        <Stack.Screen name='index' options={{ headerShown: false }} />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+        <Stack.Screen name='(auth)' options={{ headerShown: false }} />
+        <Stack.Screen name='wish/[id]' options={{ headerShown: false }} />
+      </Stack>
+      <StatusBar backgroundColor="#161622" style="light" />
+    </GlobalProvider>
   );
 }

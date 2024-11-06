@@ -18,6 +18,12 @@ module.exports = {
         gray: {
           100: "#CDCDE0",
         },
+        error:{
+          DEFAULT: "#DC3545"
+        },
+        success:{
+          DEFAULT: "#28A745"
+        }
       },
       fontFamily: {
         pthin: ["Poppins-Thin", "sans-serif"],
@@ -30,6 +36,9 @@ module.exports = {
         pextrabold: ["Poppins-ExtraBold", "sans-serif"],
         pblack: ["Poppins-Black", "sans-serif"],
       },
+    },
+    screens: {
+      'mobile': '425px',
     },
   },
   plugins: [],
