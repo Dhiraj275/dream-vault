@@ -12,6 +12,7 @@ interface WishComponentProps {
     fulfilledWish: number;
     isPublic: boolean;
     color: string;
+    id: string
 }
 
 const WishComponent = ({ uri,
@@ -19,6 +20,7 @@ const WishComponent = ({ uri,
     totalWish,
     fulfilledWish,
     isPublic,
+    id,
     color,
 }: WishComponentProps) => {
     return (
@@ -67,7 +69,7 @@ const WishComponent = ({ uri,
                         </View>
                     </View>
                     <View className="flex-row mt-2">
-                        <TouchableOpacity activeOpacity={0.8} onPress={()=>router.push("/wish/dhiraj")} className="h-[30px] mt-2 items-center justify-center px-[20px] bg-white rounded-full">
+                        <TouchableOpacity activeOpacity={0.8} onPress={() => router.push(`/wish/${id}`)} className="h-[30px] mt-2 items-center justify-center px-[20px] bg-white rounded-full">
                             <Text
                                 style={{ color: color }}
                                 className={`font-bold`}>{totalWish} Wishes</Text>

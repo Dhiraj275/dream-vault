@@ -5,7 +5,7 @@ interface CheckBoxProps {
     checked: Boolean;
     onChange: (index: number) => void;
     onChangeText: (index: number, text: string) => void;
-    className: string;
+    className?: string;
     label: string;
     index: number;
 }
@@ -21,7 +21,7 @@ const CheckBox = ({ checked = false, onChange, className, label, onChangeText, i
                     </Text>}
             </View>
             <View className='relative  ml-3'>
-                {checked && <View className='w-full top-[50%] -translate-y-1 h-[4px] absolute bg-secondary'></View>}
+                {checked && <View className='w-full top-[50%] -translate-y-1 h-[4px] absolute bg-secondary z-10'></View>}
                 <TextInput
                     style={{ color: checked ? "#D9D9D9" : "#fff", height: 40 }}
                     onChangeText={(t) => onChangeText(index, t)}

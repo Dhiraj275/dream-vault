@@ -10,7 +10,6 @@ import { GlobalContextProps } from '@/interface/GlobalContextProps'
 const Home = () => {
   const context = useContext(GlobalContext) as GlobalContextProps
   const [wishList, setWishList] = useState<WishList[]>([]) // Typed with WishList
-
   useEffect(() => {
     async function fetchList() {
       if (context.user?.uid) {
@@ -37,6 +36,7 @@ const Home = () => {
             totalWish={wish.totalWish}
             isPublic={wish.isPublic}
             title={wish.title}
+            id={wish.id}
           />
         ))}
       </ScrollView>
