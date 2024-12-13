@@ -49,6 +49,34 @@ const RootLayout = () => {
         }}
       />
       <Tabs.Screen
+        name='calendar'
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon
+              name={"Calendar"}
+              focused={focused}
+              color={color}
+              icon={icons.calendarIcon}
+            />
+          )
+        }}
+      />
+      <Tabs.Screen
+        name='transactions'
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <TabIcon
+              name={"Transactions"}
+              focused={focused}
+              color={color}
+              icon={icons.transactionsIcon}
+            />
+          )
+        }}
+      />
+      <Tabs.Screen
         name='friends'
         options={{
           headerShown: false,
@@ -62,21 +90,7 @@ const RootLayout = () => {
           )
         }}
       />
-       <Tabs.Screen
-        name='create'
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ focused, color }) => (
-            <TabIcon
-              name={"Create"}
-              focused={focused}
-              color={color}
-              icon={icons.plus}
-            />
-          )
-        }}
-      />
-       <Tabs.Screen
+      <Tabs.Screen
         name='profile'
         options={{
           headerShown: false,
@@ -90,6 +104,7 @@ const RootLayout = () => {
           )
         }}
       />
+
     </Tabs>
   )
 }

@@ -1,0 +1,1851 @@
+export interface Transaction {
+    type: "Debit" | "Credit"; // The transaction type (e.g., "Debit" or "Credit")
+    amount: number; // The amount involved in the transaction
+    sender: string; // The sender of the transaction (e.g., account number)
+    recipient: string; // The recipient or the medium of transaction
+    balance: number; // The balance after the transaction
+    date: string; // The date and time of the transaction (ISO format preferred),
+    transaction_info?:string
+  }
+const transactionsData:Transaction[] =  [
+    {
+        "type": "Debit",
+        "amount": 230.0,
+        "sender": "0145",
+        "recipient": "UPI/329685837111",
+        "balance": 12350.22,
+        "date": "23-10-2023 15:06:22"
+    },
+    {
+        "type": "Debit",
+        "amount": 75.0,
+        "sender": "0145",
+        "recipient": "UPI/329851850774",
+        "balance": 12103.22,
+        "date": "25-10-2023 19:34:18"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/330313679935",
+        "balance": 11768.22,
+        "date": "30-10-2023 16:57:55"
+    },
+    {
+        "type": "Debit",
+        "amount": 60.0,
+        "sender": "0145",
+        "recipient": "UPI/330317165929",
+        "balance": 11708.22,
+        "date": "30-10-2023 18:23:07"
+    },
+    {
+        "type": "Debit",
+        "amount": 35.0,
+        "sender": "0145",
+        "recipient": "UPI/330430901594",
+        "balance": 11673.22,
+        "date": "31-10-2023 09:01:15"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/330446835637",
+        "balance": 11613.22,
+        "date": "31-10-2023 16:31:54"
+    },
+    {
+        "type": "Debit",
+        "amount": 200.0,
+        "sender": "0145",
+        "recipient": "UPI/330457269914",
+        "balance": 11413.22,
+        "date": "31-10-2023 20:23:11"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/330749074370",
+        "balance": 10986.22,
+        "date": "03-11-2023 13:54:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 70.0,
+        "sender": "0145",
+        "recipient": "UPI/330758205601",
+        "balance": 10916.22,
+        "date": "03-11-2023 18:02:02"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/330897548914",
+        "balance": 11076.22,
+        "date": "04-11-2023 19:10:31"
+    },
+    {
+        "type": "Debit",
+        "amount": 550.0,
+        "sender": "0145",
+        "recipient": "UPI/330938341802",
+        "balance": 10211.22,
+        "date": "05-11-2023 20:43:45"
+    },
+    {
+        "type": "Debit",
+        "amount": 882.0,
+        "sender": "0145",
+        "recipient": "UPI/331229295403",
+        "balance": 9329.22,
+        "date": "08-11-2023 14:20:16"
+    },
+    {
+        "type": "Debit",
+        "amount": 45.0,
+        "sender": "0145",
+        "recipient": "UPI/331394545907",
+        "balance": 9269.22,
+        "date": "09-11-2023 19:29:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/332019435783",
+        "balance": 14360.22,
+        "date": "16-11-2023 18:43:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/332583009483",
+        "balance": 13694.22,
+        "date": "21-11-2023 18:32:24"
+    },
+    {
+        "type": "Credit",
+        "amount": 40.0,
+        "recipient": "0145",
+        "sender": "8401846079_payt",
+        "transaction_info": "UPI/332534739884",
+        "balance": 13694.22,
+        "date": "21-11-2023 18:33:09"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/332614944224",
+        "balance": 14411.22,
+        "date": "22-11-2023 18:12:38"
+    },
+    {
+        "type": "Debit",
+        "amount": 200.0,
+        "sender": "0145",
+        "recipient": "UPI/332738447399",
+        "balance": 14211.22,
+        "date": "23-11-2023 13:24:14"
+    },
+    {
+        "type": "Debit",
+        "amount": 24.0,
+        "sender": "0145",
+        "recipient": "UPI/332884547243",
+        "balance": 14187.22,
+        "date": "24-11-2023 18:44:58"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/332901257198",
+        "balance": 14157.22,
+        "date": "25-11-2023 11:05:43"
+    },
+    {
+        "type": "Debit",
+        "amount": 60.0,
+        "sender": "0145",
+        "recipient": "UPI/332902459178",
+        "balance": 14097.22,
+        "date": "25-11-2023 11:40:19"
+    },
+    {
+        "type": "Debit",
+        "amount": 500.0,
+        "sender": "0145",
+        "recipient": "UPI/333036590748",
+        "balance": 13597.22,
+        "date": "26-11-2023 11:35:24"
+    },
+    {
+        "type": "Debit",
+        "amount": 140.0,
+        "sender": "0145",
+        "recipient": "UPI/333517645089",
+        "balance": 13451.22,
+        "date": "01-12-2023 16:05:42"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/333517844194",
+        "balance": 13451.22,
+        "date": "01-12-2023 16:11:16"
+    },
+    {
+        "type": "Debit",
+        "amount": 105.0,
+        "sender": "0145",
+        "recipient": "UPI/333710796641",
+        "balance": 13346.22,
+        "date": "03-12-2023 22:38:36"
+    },
+    {
+        "type": "Debit",
+        "amount": 190.0,
+        "sender": "0145",
+        "recipient": "UPI/334277137935",
+        "balance": 17996.22,
+        "date": "08-12-2023 16:44:28"
+    },
+    {
+        "type": "Debit",
+        "amount": 38.0,
+        "sender": "0145",
+        "recipient": "UPI/334444119754",
+        "balance": 17958.22,
+        "date": "10-12-2023 13:10:06"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/334579037792",
+        "balance": 16778.22,
+        "date": "11-12-2023 13:36:51"
+    },
+    {
+        "type": "Debit",
+        "amount": 32.0,
+        "sender": "0145",
+        "recipient": "UPI/334635706903",
+        "balance": 14392.22,
+        "date": "12-12-2023 21:56:38"
+    },
+    {
+        "type": "Credit",
+        "amount": 1090.0,
+        "recipient": "0145",
+        "sender": "billdesk-tez_ic",
+        "transaction_info": "UPI/334735603558",
+        "balance": 15422.22,
+        "date": "13-12-2023 17:13:45"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/336165055772",
+        "balance": 8658.22,
+        "date": "27-12-2023 22:05:26"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/336299054803",
+        "balance": 8628.22,
+        "date": "28-12-2023 21:44:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 235.0,
+        "sender": "0145",
+        "recipient": "UPI/336474038458",
+        "balance": 8393.22,
+        "date": "30-12-2023 22:47:25"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/400125656171",
+        "balance": 8253.22,
+        "date": "01-01-2024 12:48:16"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/400285544962",
+        "balance": 7633.22,
+        "date": "02-01-2024 21:07:16"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/401876949531",
+        "balance": 8330.84,
+        "date": "18-01-2024 21:01:13"
+    },
+    {
+        "type": "Debit",
+        "amount": 156.0,
+        "sender": "0145",
+        "recipient": "UPI/402043428546",
+        "balance": 8174.84,
+        "date": "20-01-2024 19:25:44"
+    },
+    {
+        "type": "Debit",
+        "amount": 499.0,
+        "sender": "0145",
+        "recipient": "UPI/402118344101",
+        "balance": 7675.84,
+        "date": "21-01-2024 18:50:25"
+    },
+    {
+        "type": "Debit",
+        "amount": 9.0,
+        "sender": "0145",
+        "recipient": "UPI/402458990121",
+        "balance": 7666.84,
+        "date": "24-01-2024 09:49:19"
+    },
+    {
+        "type": "Debit",
+        "amount": 230.0,
+        "sender": "0145",
+        "recipient": "UPI/402524964752",
+        "balance": 7268.84,
+        "date": "25-01-2024 21:42:18"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/402821290935",
+        "balance": 7069.84,
+        "date": "28-01-2024 17:55:16"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/402964946553",
+        "balance": 6989.84,
+        "date": "29-01-2024 20:12:57"
+    },
+    {
+        "type": "Debit",
+        "amount": 800.0,
+        "sender": "0145",
+        "recipient": "UPI/403312690061",
+        "balance": 6024.84,
+        "date": "02-02-2024 17:08:54"
+    },
+    {
+        "type": "Debit",
+        "amount": 692.0,
+        "sender": "0145",
+        "recipient": "UPI/403635663831",
+        "balance": 5317.84,
+        "date": "05-02-2024 17:25:11"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/403752607585",
+        "balance": 5187.84,
+        "date": "06-02-2024 08:28:40"
+    },
+    {
+        "type": "Debit",
+        "amount": 450.0,
+        "sender": "0145",
+        "recipient": "UPI/403754438110",
+        "balance": 4737.84,
+        "date": "06-02-2024 09:30:26"
+    },
+    {
+        "type": "Credit",
+        "amount": 200.0,
+        "recipient": "0145",
+        "sender": "919421393673_pa",
+        "transaction_info": "UPI/440523056392",
+        "balance": 4937.84,
+        "date": "08-02-2024 17:03:33"
+    },
+    {
+        "type": "Credit",
+        "amount": 70.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/404556805116",
+        "balance": 9007.27,
+        "date": "14-02-2024 14:04:30"
+    },
+    {
+        "type": "Credit",
+        "amount": 50.0,
+        "recipient": "0145",
+        "sender": "rohitpattebahad",
+        "transaction_info": "UPI/404596327518",
+        "balance": 9007.27,
+        "date": "14-02-2024 14:05:52"
+    },
+    {
+        "type": "Debit",
+        "amount": 55.0,
+        "sender": "0145",
+        "recipient": "UPI/404605957469",
+        "balance": 8842.27,
+        "date": "15-02-2024 17:28:22"
+    },
+    {
+        "type": "Debit",
+        "amount": 170.0,
+        "sender": "0145",
+        "recipient": "UPI/405343232906",
+        "balance": 12770.27,
+        "date": "22-02-2024 13:35:07"
+    },
+    {
+        "type": "Debit",
+        "amount": 170.0,
+        "sender": "0145",
+        "recipient": "UPI/405836444052",
+        "balance": 12462.27,
+        "date": "27-02-2024 22:01:20"
+    },
+    {
+        "type": "Debit",
+        "amount": 60.0,
+        "sender": "0145",
+        "recipient": "UPI/405969501223",
+        "balance": 12402.27,
+        "date": "28-02-2024 21:12:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 75.0,
+        "sender": "0145",
+        "recipient": "UPI/405971709485",
+        "balance": 12327.27,
+        "date": "28-02-2024 22:15:33"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/406093069221",
+        "balance": 12297.27,
+        "date": "29-02-2024 16:27:42"
+    },
+    {
+        "type": "Credit",
+        "amount": 180.0,
+        "recipient": "0145",
+        "sender": "8401846079_payt",
+        "transaction_info": "UPI/442700867960",
+        "balance": 12477.27,
+        "date": "01-03-2024 04:58:21"
+    },
+    {
+        "type": "Credit",
+        "amount": 70.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/406133890781",
+        "balance": 12547.27,
+        "date": "01-03-2024 10:58:42"
+    },
+    {
+        "type": "Debit",
+        "amount": 800.0,
+        "sender": "0145",
+        "recipient": "UPI/406318548601",
+        "balance": 11568.27,
+        "date": "03-03-2024 20:09:14"
+    },
+    {
+        "type": "Credit",
+        "amount": 545.0,
+        "recipient": "0145",
+        "sender": "8401846079_payt",
+        "transaction_info": "UPI/443110658100",
+        "balance": 12113.27,
+        "date": "05-03-2024 13:52:51"
+    },
+    {
+        "type": "Credit",
+        "amount": 33.0,
+        "recipient": "0145",
+        "sender": "snehasubhashbin",
+        "transaction_info": "UPI/406547615059",
+        "balance": 11989.27,
+        "date": "05-03-2024 14:34:32"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/406579740885",
+        "balance": 11989.27,
+        "date": "05-03-2024 14:38:42"
+    },
+    {
+        "type": "Credit",
+        "amount": 20.0,
+        "recipient": "0145",
+        "sender": "8401846079_payt",
+        "transaction_info": "UPI/406523177764",
+        "balance": 11989.27,
+        "date": "05-03-2024 14:45:48"
+    },
+    {
+        "type": "Debit",
+        "amount": 110.0,
+        "sender": "0145",
+        "recipient": "UPI/406579993773",
+        "balance": 11989.27,
+        "date": "05-03-2024 14:45:30"
+    },
+    {
+        "type": "Debit",
+        "amount": 4000.0,
+        "sender": "0145",
+        "recipient": "UPI/406621159560",
+        "balance": 7989.27,
+        "date": "06-03-2024 16:09:33"
+    },
+    {
+        "type": "Debit",
+        "amount": 299.0,
+        "sender": "0145",
+        "recipient": "UPI/406741101525",
+        "balance": 7690.27,
+        "date": "07-03-2024 17:48:06"
+    },
+    {
+        "type": "Debit",
+        "amount": 65.0,
+        "sender": "0145",
+        "recipient": "UPI/407078255011",
+        "balance": 7514.27,
+        "date": "10-03-2024 18:26:44"
+    },
+    {
+        "type": "Debit",
+        "amount": 250.0,
+        "sender": "0145",
+        "recipient": "UPI/407197818912",
+        "balance": 7264.27,
+        "date": "11-03-2024 10:58:01"
+    },
+    {
+        "type": "Debit",
+        "amount": 190.0,
+        "sender": "0145",
+        "recipient": "UPI/407111598764",
+        "balance": 7074.27,
+        "date": "11-03-2024 17:01:27"
+    },
+    {
+        "type": "Credit",
+        "amount": 3650.0,
+        "recipient": "0145",
+        "sender": "khushipatel1792",
+        "transaction_info": "UPI/407113280724",
+        "balance": 10724.27,
+        "date": "11-03-2024 17:41:38"
+    },
+    {
+        "type": "Debit",
+        "amount": 200.0,
+        "sender": "0145",
+        "recipient": "UPI/407548075985",
+        "balance": 10798.27,
+        "date": "15-03-2024 12:23:05"
+    },
+    {
+        "type": "Credit",
+        "amount": 325.0,
+        "recipient": "0145",
+        "sender": "snehasubhashbin",
+        "transaction_info": "UPI/407535653666",
+        "balance": 10798.27,
+        "date": "15-03-2024 12:25:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 800.0,
+        "sender": "0145",
+        "recipient": "UPI/407560338600",
+        "balance": 10799.27,
+        "date": "15-03-2024 17:45:45"
+    },
+    {
+        "type": "Credit",
+        "amount": 800.0,
+        "recipient": "0145",
+        "sender": "RSAL",
+        "transaction_info": "UPI/407560338600",
+        "balance": 10799.27,
+        "date": "15-03-2024 17:45:47"
+    },
+    {
+        "type": "Debit",
+        "amount": 490.0,
+        "sender": "0145",
+        "recipient": "UPI/407668591406",
+        "balance": 10309.27,
+        "date": "16-03-2024 19:13:10"
+    },
+    {
+        "type": "Debit",
+        "amount": 156.9,
+        "sender": "0145",
+        "recipient": "UPI/409498610638",
+        "balance": 29748.37,
+        "date": "03-04-2024 18:55:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 5.0,
+        "sender": "0145",
+        "recipient": "UPI/409499266300",
+        "balance": 29748.37,
+        "date": "03-04-2024 19:06:10"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/411791434423",
+        "balance": 10876.95,
+        "date": "26-04-2024 13:29:44"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/416511378783",
+        "balance": 10080.05,
+        "date": "13-06-2024 16:34:30"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/416647474376",
+        "balance": 10040.05,
+        "date": "14-06-2024 14:33:55"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/416649734706",
+        "balance": 10020.05,
+        "date": "14-06-2024 15:41:26"
+    },
+    {
+        "type": "Debit",
+        "amount": 360.0,
+        "sender": "0145",
+        "recipient": "UPI/416794148525",
+        "balance": 9900.05,
+        "date": "15-06-2024 17:01:01"
+    },
+    {
+        "type": "Credit",
+        "amount": 60.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/416733547475",
+        "balance": 9900.05,
+        "date": "15-06-2024 17:01:04"
+    },
+    {
+        "type": "Credit",
+        "amount": 180.0,
+        "recipient": "0145",
+        "sender": "ritiksingh16122",
+        "transaction_info": "UPI/416702766087",
+        "balance": 9900.05,
+        "date": "15-06-2024 17:02:36"
+    },
+    {
+        "type": "Debit",
+        "amount": 29.0,
+        "sender": "0145",
+        "recipient": "UPI/417024796645",
+        "balance": 9501.05,
+        "date": "18-06-2024 21:17:14"
+    },
+    {
+        "type": "Debit",
+        "amount": 320.0,
+        "sender": "0145",
+        "recipient": "UPI/417024812694",
+        "balance": 9501.05,
+        "date": "18-06-2024 21:18:07"
+    },
+    {
+        "type": "Debit",
+        "amount": 1.0,
+        "sender": "0145",
+        "recipient": "UPI/417152927448",
+        "balance": 9301.05,
+        "date": "19-06-2024 02:54:05"
+    },
+    {
+        "type": "Debit",
+        "amount": 199.0,
+        "sender": "0145",
+        "recipient": "UPI/417187359084",
+        "balance": 9301.05,
+        "date": "19-06-2024 02:53:14"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/417642787637",
+        "balance": 9202.05,
+        "date": "24-06-2024 15:56:11"
+    },
+    {
+        "type": "Debit",
+        "amount": 25.0,
+        "sender": "0145",
+        "recipient": "UPI/422584218240",
+        "balance": 10620.06,
+        "date": "12-08-2024 20:03:48"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/422899107667",
+        "balance": 10590.06,
+        "date": "15-08-2024 14:20:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 384.0,
+        "sender": "0145",
+        "recipient": "UPI/422938068154",
+        "balance": 10154.06,
+        "date": "16-08-2024 12:58:45"
+    },
+    {
+        "type": "Debit",
+        "amount": 180.0,
+        "sender": "0145",
+        "recipient": "UPI/422938218870",
+        "balance": 10154.06,
+        "date": "16-08-2024 13:03:07"
+    },
+    {
+        "type": "Credit",
+        "amount": 128.0,
+        "recipient": "0145",
+        "sender": "singhshivam9550",
+        "transaction_info": "UPI/422938260294",
+        "balance": 10154.06,
+        "date": "16-08-2024 13:03:39"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/422940023074",
+        "balance": 10104.06,
+        "date": "16-08-2024 13:47:36"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/423000516333",
+        "balance": 10024.06,
+        "date": "17-08-2024 19:26:01"
+    },
+    {
+        "type": "Debit",
+        "amount": 442.25,
+        "sender": "0145",
+        "recipient": "UPI/423117542223",
+        "balance": 10023.81,
+        "date": "18-08-2024 09:34:55"
+    },
+    {
+        "type": "Credit",
+        "amount": 442.0,
+        "recipient": "0145",
+        "sender": "singhshivam9550",
+        "transaction_info": "UPI/423117781405",
+        "balance": 10023.81,
+        "date": "18-08-2024 09:41:20"
+    },
+    {
+        "type": "Debit",
+        "amount": 60.0,
+        "sender": "0145",
+        "recipient": "UPI/423780826397",
+        "balance": 9963.81,
+        "date": "24-08-2024 16:36:01"
+    },
+    {
+        "type": "Debit",
+        "amount": 1053.42,
+        "sender": "0145",
+        "recipient": "UPI/423783877152",
+        "balance": 8910.39,
+        "date": "24-08-2024 17:46:51"
+    },
+    {
+        "type": "Debit",
+        "amount": 860.9,
+        "sender": "0145",
+        "recipient": "UPI/424129888728",
+        "balance": 8049.49,
+        "date": "28-08-2024 11:05:00"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/424302876917",
+        "balance": 7949.49,
+        "date": "30-08-2024 02:43:58"
+    },
+    {
+        "type": "Debit",
+        "amount": 101.0,
+        "sender": "0145",
+        "recipient": "UPI/424340481345",
+        "balance": 7748.49,
+        "date": "30-08-2024 21:15:40"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/424340634509",
+        "balance": 7748.49,
+        "date": "30-08-2024 21:18:44"
+    },
+    {
+        "type": "Credit",
+        "amount": 200.0,
+        "recipient": "0145",
+        "sender": "corporation2007",
+        "transaction_info": "UPI/461138003606",
+        "balance": 7948.49,
+        "date": "01-09-2024 17:18:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 160.0,
+        "sender": "0145",
+        "recipient": "UPI/424519825600",
+        "balance": 7511.49,
+        "date": "01-09-2024 18:20:00"
+    },
+    {
+        "type": "Debit",
+        "amount": 95.0,
+        "sender": "0145",
+        "recipient": "UPI/425222435231",
+        "balance": 6241.99,
+        "date": "08-09-2024 10:19:10"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/425231065070",
+        "balance": 6161.99,
+        "date": "08-09-2024 13:25:04"
+    },
+    {
+        "type": "Credit",
+        "amount": 1100.0,
+        "recipient": "0145",
+        "sender": "vinodprajapati_",
+        "transaction_info": "UPI/425243856087",
+        "balance": 7261.99,
+        "date": "08-09-2024 18:54:58"
+    },
+    {
+        "type": "Debit",
+        "amount": 70.0,
+        "sender": "0145",
+        "recipient": "UPI/425252349271",
+        "balance": 7191.99,
+        "date": "08-09-2024 20:25:40"
+    },
+    {
+        "type": "Credit",
+        "amount": 700.0,
+        "recipient": "0145",
+        "sender": "9662758961-2_yb",
+        "transaction_info": "UPI/425202783372",
+        "balance": 7891.99,
+        "date": "08-09-2024 23:39:20"
+    },
+    {
+        "type": "Debit",
+        "amount": 382.5,
+        "sender": "0145",
+        "recipient": "UPI/425387425587",
+        "balance": 2509.49,
+        "date": "09-09-2024 18:12:20"
+    },
+    {
+        "type": "Credit",
+        "amount": 5000.0,
+        "recipient": "0145",
+        "sender": "pramody970297_o",
+        "transaction_info": "UPI/462377111689",
+        "balance": 7509.49,
+        "date": "13-09-2024 07:47:22"
+    },
+    {
+        "type": "Credit",
+        "amount": 40.0,
+        "recipient": "0145",
+        "sender": "9399605482_axl",
+        "transaction_info": "UPI/425880817580",
+        "balance": 7509.49,
+        "date": "14-09-2024 12:30:23"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/425897689612",
+        "balance": 7509.49,
+        "date": "14-09-2024 12:32:16"
+    },
+    {
+        "type": "Debit",
+        "amount": 60.0,
+        "sender": "0145",
+        "recipient": "UPI/425942906364",
+        "balance": 7449.49,
+        "date": "15-09-2024 12:38:49"
+    },
+    {
+        "type": "Debit",
+        "amount": 310.0,
+        "sender": "0145",
+        "recipient": "UPI/425955271908",
+        "balance": 7139.49,
+        "date": "15-09-2024 17:41:48"
+    },
+    {
+        "type": "Debit",
+        "amount": 899.0,
+        "sender": "0145",
+        "recipient": "UPI/426214195163",
+        "balance": 6240.49,
+        "date": "18-09-2024 11:25:28"
+    },
+    {
+        "type": "Credit",
+        "amount": 270.0,
+        "recipient": "0145",
+        "sender": "mahepalv_oksbi",
+        "transaction_info": "UPI/426356015189",
+        "balance": 6510.49,
+        "date": "19-09-2024 20:06:05"
+    },
+    {
+        "type": "Debit",
+        "amount": 150.0,
+        "sender": "0145",
+        "recipient": "UPI/426701187297",
+        "balance": 5095.49,
+        "date": "23-09-2024 18:20:44"
+    },
+    {
+        "type": "Debit",
+        "amount": 650.0,
+        "sender": "0145",
+        "recipient": "UPI/426702215580",
+        "balance": 5095.49,
+        "date": "23-09-2024 18:36:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/426711045360",
+        "balance": 5090.49,
+        "date": "23-09-2024 20:58:52"
+    },
+    {
+        "type": "Debit",
+        "amount": 45.0,
+        "sender": "0145",
+        "recipient": "UPI/426711085127",
+        "balance": 5090.49,
+        "date": "23-09-2024 20:59:47"
+    },
+    {
+        "type": "Credit",
+        "amount": 30.0,
+        "recipient": "0145",
+        "sender": "singhshivam9550",
+        "transaction_info": "UPI/426711052071",
+        "balance": 5090.49,
+        "date": "23-09-2024 20:59:08"
+    },
+    {
+        "type": "Credit",
+        "amount": 30.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/426743267238",
+        "balance": 5090.49,
+        "date": "23-09-2024 21:01:32"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/427211921500",
+        "balance": 2020.49,
+        "date": "28-09-2024 18:23:44"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/427212169904",
+        "balance": 2020.49,
+        "date": "28-09-2024 18:27:41"
+    },
+    {
+        "type": "Debit",
+        "amount": 60.0,
+        "sender": "0145",
+        "recipient": "UPI/427401451026",
+        "balance": 1900.49,
+        "date": "30-09-2024 18:29:49"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/427406094567",
+        "balance": 1850.49,
+        "date": "30-09-2024 19:35:15"
+    },
+    {
+        "type": "Debit",
+        "amount": 23.0,
+        "sender": "0145",
+        "recipient": "UPI/427897186440",
+        "balance": 1937.49,
+        "date": "04-10-2024 18:04:58"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/427897574318",
+        "balance": 1937.49,
+        "date": "04-10-2024 18:10:42"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/428479871610",
+        "balance": 1125.24,
+        "date": "10-10-2024 14:20:24"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/428668018693",
+        "balance": 1027.24,
+        "date": "12-10-2024 11:59:51"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/428668319275",
+        "balance": 997.24,
+        "date": "12-10-2024 12:05:47"
+    },
+    {
+        "type": "Debit",
+        "amount": 5000.0,
+        "sender": "0145",
+        "recipient": "UPI/428901134221",
+        "balance": 7880.24,
+        "date": "15-10-2024 11:46:35"
+    },
+    {
+        "type": "Credit",
+        "amount": 237.0,
+        "recipient": "0145",
+        "sender": "singhshivam9550",
+        "transaction_info": "UPI/428906128790",
+        "balance": 1487.24,
+        "date": "15-10-2024 13:35:32"
+    },
+    {
+        "type": "Debit",
+        "amount": 35.0,
+        "sender": "0145",
+        "recipient": "UPI/428918536792",
+        "balance": 1452.24,
+        "date": "15-10-2024 18:05:26"
+    },
+    {
+        "type": "Debit",
+        "amount": 49.0,
+        "sender": "0145",
+        "recipient": "UPI/429005028164",
+        "balance": 1403.24,
+        "date": "16-10-2024 14:48:15"
+    },
+    {
+        "type": "Credit",
+        "amount": 14.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/465640978910",
+        "balance": 1417.24,
+        "date": "16-10-2024 15:55:51"
+    },
+    {
+        "type": "Debit",
+        "amount": 54.0,
+        "sender": "0145",
+        "recipient": "UPI/429061342549",
+        "balance": 1363.24,
+        "date": "16-10-2024 17:13:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/429064498140",
+        "balance": 1333.24,
+        "date": "16-10-2024 18:09:32"
+    },
+    {
+        "type": "Credit",
+        "amount": 30.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/429260271127",
+        "balance": 1225.24,
+        "date": "18-10-2024 15:10:32"
+    },
+    {
+        "type": "Debit",
+        "amount": 400.0,
+        "sender": "0145",
+        "recipient": "UPI/429260270986",
+        "balance": 825.24,
+        "date": "18-10-2024 19:38:36"
+    },
+    {
+        "type": "Debit",
+        "amount": 5.0,
+        "sender": "0145",
+        "recipient": "UPI/429265586825",
+        "balance": 810.24,
+        "date": "18-10-2024 21:04:18"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/429265732423",
+        "balance": 810.24,
+        "date": "18-10-2024 21:07:07"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/429631169209",
+        "balance": 665.11,
+        "date": "22-10-2024 16:49:05"
+    },
+    {
+        "type": "Debit",
+        "amount": 4.0,
+        "sender": "0145",
+        "recipient": "UPI/429648846727",
+        "balance": 638.11,
+        "date": "22-10-2024 21:50:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 34.0,
+        "sender": "0145",
+        "recipient": "UPI/430003229222",
+        "balance": 604.11,
+        "date": "26-10-2024 12:32:07"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/430164883398",
+        "balance": 594.11,
+        "date": "27-10-2024 17:47:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/430165990915",
+        "balance": 554.11,
+        "date": "27-10-2024 18:05:12"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/430166303696",
+        "balance": 554.11,
+        "date": "27-10-2024 18:10:10"
+    },
+    {
+        "type": "Credit",
+        "amount": 5000.0,
+        "recipient": "0145",
+        "sender": "rajubhaigprajap",
+        "transaction_info": "UPI/430207798042",
+        "balance": 554.11,
+        "date": "28-10-2024 16:36:31"
+    },
+    {
+        "type": "Debit",
+        "amount": 5000.0,
+        "sender": "0145",
+        "recipient": "UPI/430208059783",
+        "balance": 554.11,
+        "date": "28-10-2024 16:53:17"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/430223807036",
+        "balance": 544.11,
+        "date": "28-10-2024 20:58:56"
+    },
+    {
+        "type": "Debit",
+        "amount": 286.35,
+        "sender": "0145",
+        "recipient": "UPI/430331098999",
+        "balance": 257.76,
+        "date": "29-10-2024 06:28:51"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/430331128784",
+        "balance": 322.76,
+        "date": "29-10-2024 06:31:13"
+    },
+    {
+        "type": "Credit",
+        "amount": 95.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/430346813805",
+        "balance": 322.76,
+        "date": "29-10-2024 06:30:49"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/430332105087",
+        "balance": 312.76,
+        "date": "29-10-2024 07:44:40"
+    },
+    {
+        "type": "Credit",
+        "amount": 400.0,
+        "recipient": "0145",
+        "sender": "harshbharate05_",
+        "transaction_info": "UPI/430375679215",
+        "balance": 712.76,
+        "date": "29-10-2024 21:40:39"
+    },
+    {
+        "type": "Debit",
+        "amount": 22.0,
+        "sender": "0145",
+        "recipient": "UPI/430546534775",
+        "balance": 690.76,
+        "date": "31-10-2024 11:43:45"
+    },
+    {
+        "type": "Debit",
+        "amount": 400.0,
+        "sender": "0145",
+        "recipient": "UPI/430609269678",
+        "balance": 290.76,
+        "date": "01-11-2024 16:21:21"
+    },
+    {
+        "type": "Credit",
+        "amount": 100.0,
+        "recipient": "0145",
+        "sender": "9574314091_ptye",
+        "transaction_info": "UPI/430609641399",
+        "balance": 390.76,
+        "date": "01-11-2024 17:11:30"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/430613713302",
+        "balance": 380.76,
+        "date": "01-11-2024 17:44:38"
+    },
+    {
+        "type": "Debit",
+        "amount": 50.0,
+        "sender": "0145",
+        "recipient": "UPI/430731206433",
+        "balance": 330.76,
+        "date": "02-11-2024 03:43:39"
+    },
+    {
+        "type": "Debit",
+        "amount": 90.0,
+        "sender": "0145",
+        "recipient": "UPI/431287136705",
+        "balance": 258.76,
+        "date": "07-11-2024 18:55:33"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/431287300144",
+        "balance": 258.76,
+        "date": "07-11-2024 18:57:59"
+    },
+    {
+        "type": "Debit",
+        "amount": 110.0,
+        "sender": "0145",
+        "recipient": "UPI/431596002113",
+        "balance": 148.76,
+        "date": "10-11-2024 06:50:09"
+    },
+    {
+        "type": "Debit",
+        "amount": 55.0,
+        "sender": "0145",
+        "recipient": "UPI/431510740322",
+        "balance": 93.76,
+        "date": "10-11-2024 13:35:22"
+    },
+    {
+        "type": "Credit",
+        "amount": 320.0,
+        "recipient": "0145",
+        "sender": "singhshivam9550",
+        "transaction_info": "UPI/431655336189",
+        "balance": 5093.76,
+        "date": "11-11-2024 13:05:43"
+    },
+    {
+        "type": "Debit",
+        "amount": 320.0,
+        "sender": "0145",
+        "recipient": "UPI/431655359917",
+        "balance": 5093.76,
+        "date": "11-11-2024 13:06:25"
+    },
+    {
+        "type": "Credit",
+        "amount": 5000.0,
+        "recipient": "0145",
+        "sender": "rajubhaigprajap",
+        "transaction_info": "UPI/431640411779",
+        "balance": 5093.76,
+        "date": "11-11-2024 13:07:08"
+    },
+    {
+        "type": "Debit",
+        "amount": 110.0,
+        "sender": "0145",
+        "recipient": "UPI/431679136413",
+        "balance": 4983.76,
+        "date": "11-11-2024 20:19:39"
+    },
+    {
+        "type": "Credit",
+        "amount": 30.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/432158103952",
+        "balance": 5013.76,
+        "date": "16-11-2024 16:23:36"
+    },
+    {
+        "type": "Debit",
+        "amount": 80.0,
+        "sender": "0145",
+        "recipient": "UPI/432199957201",
+        "balance": 4933.76,
+        "date": "16-11-2024 17:24:49"
+    },
+    {
+        "type": "Credit",
+        "amount": 60.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/432203776292",
+        "balance": 4993.76,
+        "date": "17-11-2024 21:28:28"
+    },
+    {
+        "type": "Debit",
+        "amount": 10.0,
+        "sender": "0145",
+        "recipient": "UPI/432301714300",
+        "balance": 4983.76,
+        "date": "18-11-2024 20:46:41"
+    },
+    {
+        "type": "Debit",
+        "amount": 3100.0,
+        "sender": "0145",
+        "recipient": "UPI/432424754792",
+        "balance": 1883.76,
+        "date": "19-11-2024 14:04:21"
+    },
+    {
+        "type": "Debit",
+        "amount": 700.0,
+        "sender": "0145",
+        "recipient": "UPI/432571900185",
+        "balance": 1183.76,
+        "date": "20-11-2024 15:28:20"
+    },
+    {
+        "type": "Debit",
+        "amount": 15.0,
+        "sender": "0145",
+        "recipient": "UPI/432592119885",
+        "balance": 1168.76,
+        "date": "20-11-2024 21:29:45"
+    },
+    {
+        "type": "Credit",
+        "amount": 135.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/469165823983",
+        "balance": 1303.76,
+        "date": "20-11-2024 23:11:54"
+    },
+    {
+        "type": "Credit",
+        "amount": 1750.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/469269543699",
+        "balance": 3053.76,
+        "date": "21-11-2024 14:48:07"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/432623480536",
+        "balance": 3033.76,
+        "date": "21-11-2024 18:02:36"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/432770196836",
+        "balance": 3003.76,
+        "date": "22-11-2024 18:52:47"
+    },
+    {
+        "type": "Debit",
+        "amount": 24.0,
+        "sender": "0145",
+        "recipient": "UPI/433148472412",
+        "balance": 2343.76,
+        "date": "26-11-2024 18:53:57"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/433324448217",
+        "balance": 2303.76,
+        "date": "28-11-2024 14:44:32"
+    },
+    {
+        "type": "Debit",
+        "amount": 155.0,
+        "sender": "0145",
+        "recipient": "UPI/433334161044",
+        "balance": 2148.76,
+        "date": "28-11-2024 18:10:40"
+    },
+    {
+        "type": "Credit",
+        "amount": 70.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/469925609947",
+        "balance": 2248.76,
+        "date": "28-11-2024 18:31:15"
+    },
+    {
+        "type": "Credit",
+        "amount": 30.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/469960331527",
+        "balance": 2248.76,
+        "date": "28-11-2024 18:32:13"
+    },
+    {
+        "type": "Debit",
+        "amount": 263.0,
+        "sender": "0145",
+        "recipient": "UPI/433348665569",
+        "balance": 1985.76,
+        "date": "28-11-2024 22:30:54"
+    },
+    {
+        "type": "Debit",
+        "amount": 59.0,
+        "sender": "0145",
+        "recipient": "UPI/433401195203",
+        "balance": 1926.76,
+        "date": "29-11-2024 02:40:35"
+    },
+    {
+        "type": "Credit",
+        "amount": 10.0,
+        "recipient": "0145",
+        "sender": "8511500331_ptye",
+        "transaction_info": "UPI/433501554645",
+        "balance": 1884.76,
+        "date": "30-11-2024 16:40:36"
+    },
+    {
+        "type": "Credit",
+        "amount": 10.0,
+        "recipient": "0145",
+        "sender": "8511500331_ptye",
+        "transaction_info": "UPI/433510552572",
+        "balance": 1904.76,
+        "date": "30-11-2024 16:41:58"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/433545473795",
+        "balance": 1884.76,
+        "date": "30-11-2024 18:03:44"
+    },
+    {
+        "type": "Debit",
+        "amount": 30.0,
+        "sender": "0145",
+        "recipient": "UPI/433537260816",
+        "balance": 1854.76,
+        "date": "30-11-2024 20:49:06"
+    },
+    {
+        "type": "Debit",
+        "amount": 400.0,
+        "sender": "0145",
+        "recipient": "UPI/433541406335",
+        "balance": 1454.76,
+        "date": "30-11-2024 22:22:53"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/433647186785",
+        "balance": 1354.76,
+        "date": "01-12-2024 08:51:28"
+    },
+    {
+        "type": "Debit",
+        "amount": 56.0,
+        "sender": "0145",
+        "recipient": "UPI/433678322163",
+        "balance": 1298.76,
+        "date": "01-12-2024 19:00:41"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/433771914003",
+        "balance": 1298.76,
+        "date": "02-12-2024 19:30:09"
+    },
+    {
+        "type": "Credit",
+        "amount": 10.0,
+        "recipient": "0145",
+        "sender": "8511500331_ptye",
+        "transaction_info": "UPI/433705846462",
+        "balance": 1298.76,
+        "date": "02-12-2024 19:22:22"
+    },
+    {
+        "type": "Credit",
+        "amount": 10.0,
+        "recipient": "0145",
+        "sender": "8511500331_ptye",
+        "transaction_info": "UPI/433711848262",
+        "balance": 1298.76,
+        "date": "02-12-2024 19:21:18"
+    },
+    {
+        "type": "Credit",
+        "amount": 3500.0,
+        "recipient": "0145",
+        "sender": "kambleyash016-1",
+        "transaction_info": "UPI/433996955161",
+        "balance": 4798.76,
+        "date": "04-12-2024 10:04:56"
+    },
+    {
+        "type": "Credit",
+        "amount": 135.0,
+        "recipient": "0145",
+        "sender": "dipakkumar0418_",
+        "transaction_info": "UPI/433933296595",
+        "balance": 4933.76,
+        "date": "04-12-2024 21:07:01"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/433934584917",
+        "balance": 4833.76,
+        "date": "04-12-2024 21:31:14"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/434109170423",
+        "balance": 4813.76,
+        "date": "06-12-2024 16:11:13"
+    },
+    {
+        "type": "Credit",
+        "amount": 30.0,
+        "recipient": "0145",
+        "sender": "singhshivam9550",
+        "transaction_info": "UPI/434120697692",
+        "balance": 4753.76,
+        "date": "06-12-2024 19:16:00"
+    },
+    {
+        "type": "Debit",
+        "amount": 90.0,
+        "sender": "0145",
+        "recipient": "UPI/434120687899",
+        "balance": 4753.76,
+        "date": "06-12-2024 19:15:59"
+    },
+    {
+        "type": "Credit",
+        "amount": 1200.0,
+        "recipient": "0145",
+        "sender": "vinodprajapati_",
+        "transaction_info": "UPI/434251128158",
+        "balance": 5953.76,
+        "date": "07-12-2024 17:53:04"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/434273304698",
+        "balance": 5951.76,
+        "date": "07-12-2024 19:58:03"
+    },
+    {
+        "type": "Credit",
+        "amount": 98.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/470835914672",
+        "balance": 5951.76,
+        "date": "07-12-2024 19:58:51"
+    },
+    {
+        "type": "Credit",
+        "amount": 4.0,
+        "recipient": "0145",
+        "sender": "goog-payments_a",
+        "transaction_info": "UPI/600504143434",
+        "balance": 5955.76,
+        "date": "08-12-2024 03:47:13"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/434452558809",
+        "balance": 5875.76,
+        "date": "09-12-2024 15:13:00"
+    },
+    {
+        "type": "Debit",
+        "amount": 1200.0,
+        "sender": "0145",
+        "recipient": "UPI/434466615287",
+        "balance": 4590.76,
+        "date": "09-12-2024 19:11:58"
+    },
+    {
+        "type": "Debit",
+        "amount": 85.0,
+        "sender": "0145",
+        "recipient": "UPI/434466611546",
+        "balance": 4590.76,
+        "date": "09-12-2024 19:12:29"
+    },
+    {
+        "type": "Debit",
+        "amount": 100.0,
+        "sender": "0145",
+        "recipient": "UPI/434658478825",
+        "balance": 4410.76,
+        "date": "11-12-2024 18:20:35"
+    },
+    {
+        "type": "Debit",
+        "amount": 75.0,
+        "sender": "0145",
+        "recipient": "UPI/434659721889",
+        "balance": 4375.76,
+        "date": "11-12-2024 18:38:30"
+    },
+    {
+        "type": "Debit",
+        "amount": 40.0,
+        "sender": "0145",
+        "recipient": "UPI/434658609380",
+        "balance": 4410.76,
+        "date": "11-12-2024 18:22:29"
+    },
+    {
+        "type": "Credit",
+        "amount": 35.0,
+        "recipient": "0145",
+        "sender": "dipakkumar0418_",
+        "transaction_info": "UPI/434660937607",
+        "balance": 4410.76,
+        "date": "11-12-2024 18:55:30"
+    },
+    {
+        "type": "Debit",
+        "amount": 20.0,
+        "sender": "0145",
+        "recipient": "UPI/434700230236",
+        "balance": 4390.76,
+        "date": "12-12-2024 16:44:57"
+    },
+    {
+        "type": "Debit",
+        "amount": 215.0,
+        "sender": "0145",
+        "recipient": "UPI/434716627526",
+        "balance": 4326.76,
+        "date": "12-12-2024 21:04:46"
+    },
+    {
+        "type": "Credit",
+        "amount": 48.0,
+        "recipient": "0145",
+        "sender": "patilpranav589_",
+        "transaction_info": "UPI/434723808267",
+        "balance": 4326.76,
+        "date": "12-12-2024 21:18:56"
+    },
+    {
+        "type": "Credit",
+        "amount": 43.0,
+        "recipient": "0145",
+        "sender": "dipakkumar0418_",
+        "transaction_info": "UPI/434717412217",
+        "balance": 4326.76,
+        "date": "12-12-2024 21:20:03"
+    },
+    {
+        "type": "Credit",
+        "amount": 60.0,
+        "recipient": "0145",
+        "sender": "dipakkumar0418_",
+        "transaction_info": "UPI/434717434843",
+        "balance": 4326.76,
+        "date": "12-12-2024 21:20:35"
+    },
+    {
+        "type": "Debit",
+        "amount": 99.0,
+        "sender": "0145",
+        "recipient": "UPI/434718162442",
+        "balance": 4326.76,
+        "date": "12-12-2024 21:36:46"
+    },
+    {
+        "type": "Credit",
+        "amount": 99.0,
+        "recipient": "0145",
+        "sender": "gauravthakur232",
+        "transaction_info": "UPI/434723838448",
+        "balance": 4326.76,
+        "date": "12-12-2024 21:41:07"
+    }
+]
+export default transactionsData

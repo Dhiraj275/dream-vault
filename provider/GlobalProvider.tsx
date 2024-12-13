@@ -2,12 +2,11 @@ import { router } from 'expo-router';
 import { onAuthStateChanged, signOut, User, Auth } from 'firebase/auth';
 import React, { createContext, useState, useEffect, Dispatch, SetStateAction } from 'react';
 import { auth } from '../firebase/firebase';
+import WishList from '@/interface/WishList';
+import fetchUserWishlists from '@/utils/fetchUserWishlists';
+import GlobalContextProps from '@/interface/GlobalContextProps';
 
-interface GlobalContextProps {
-  user: User | null;
-  isLoading: boolean;
-  setUser: Dispatch<SetStateAction<User | null>>;
-}
+
 
 const GlobalContext = createContext<GlobalContextProps | undefined>(undefined);
 
@@ -16,9 +15,9 @@ interface GlobalProviderProps {
 }
 
 const GlobalProvider = ({ children }: GlobalProviderProps) => {
-  const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [wishList, setWishList] = useState<WishList[] | null>([])
+  const [user, setUser] = useState<User | null>(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -38,6 +37,8 @@ const GlobalProvider = ({ children }: GlobalProviderProps) => {
         user,
         isLoading,
         setUser,
+        wishList:wishList?wishList:[],
+        setWishList
       }}
     >
       {children}

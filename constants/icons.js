@@ -12,9 +12,17 @@ import eyeHide from "../assets/icons/eye-hide.png";
 import eye from "../assets/icons/eye.png";
 import play from "../assets/icons/play.png";
 import friends from "../assets/icons/friends.png";
+import deleteIcon from "../assets/icons/delete.png";
+import linkIcon from "../assets/icons/link.png";
 import share from "../assets/icons/share.png";
-
-
+import lock from "../assets/icons/lock.png";
+import cloudDone from "../assets/icons/cloud-done.png";
+import cloud from "../assets/icons/cloud.png";
+import calendarIcon from '../assets/icons/calendar.png'
+import transactionsIcon from '../assets/icons/transactions.png'
+import inIcon from '../assets/icons/in-icon.png'
+import outIcon from '../assets/icons/out-icon.png'
+import arrowLeft from '../assets/icons/arrow-left.png'
 export default {
   play,
   bookmark,
@@ -30,5 +38,15 @@ export default {
   eyeHide,
   eye,
   friends,
-  share
+  share,
+  linkIcon,
+  lock,
+  deleteIcon,
+  cloud,
+  calendarIcon,
+  cloudDone,
+  transactionsIcon,
+  inIcon,
+  outIcon,
+  arrowLeft
 };

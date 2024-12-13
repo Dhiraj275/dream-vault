@@ -4,33 +4,36 @@ import fetchWishList from "./fetchWishList"; // Import the fetchWishList functio
 import WishList from "@/interface/WishList";
 
 const fetchUserWishlists = async (userId: string): Promise<WishList[]> => {
+  const userWishListRef = ref(database, `users/${userId}/wishlists`);
+
   return new Promise((resolve, reject) => {
-    const userWishListRef = ref(database, `users/${userId}/wishlists`);
     onValue(
       userWishListRef,
       async (wishlistsSnapshot) => {
         const wishlistsData = wishlistsSnapshot.val();
-
         if (wishlistsData) {
           try {
-            // Use fetchWishList for each wishlist ID and await the results
             const wishListPromises = Object.keys(wishlistsData).map((id) =>
               fetchWishList(id)
             );
 
             const resolvedWishLists = await Promise.all(wishListPromises);
-            resolve(resolvedWishLists);
+            resolvedWishLists.sort((a, b) => b.date - a.date)
+            resolve(resolvedWishLists)
           } catch (error) {
             console.error("Error fetching wishlists: ", error);
             reject(error);
           }
         } else {
+          console.warn("No wishlists found for the user"); // Debug log
           resolve([]);
         }
       },
       { onlyOnce: true }
     );
   });
+
 };
+
 
 export default fetchUserWishlists;
