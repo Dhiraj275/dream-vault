@@ -5,18 +5,19 @@ import TaskTab from './TaskTab'
 import TransactionTab from './TransactionTab'
 interface TabProps {
     selectedTab: string,
+    selectedDate: string,
 }
-const Tab = ({ selectedTab }: TabProps) => {
+const Tab = ({ selectedTab, selectedDate }: TabProps) => {
 
     switch (selectedTab) {
         case "checklist":
-            return (<ChecklistTab />)
+            return (<ChecklistTab selectedDate={selectedDate} />)
             break;
         case "task":
-            return (<TaskTab />)
+            return (<TaskTab selectedDate={selectedDate} />)
             break;
         case "transaction":
-            return (<TransactionTab />)
+            return (<TransactionTab selectedDate={selectedDate} />)
             break;
     }
 }

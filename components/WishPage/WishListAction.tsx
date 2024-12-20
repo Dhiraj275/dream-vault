@@ -1,13 +1,13 @@
-import { icons } from '@/constants'
-import { database } from '@/firebase/firebase'
-import GlobalContextProps from '@/interface/GlobalContextProps'
-import WishList from '@/interface/WishList'
-import { GlobalContext } from '@/provider/GlobalProvider'
+import { icons } from '../../constants'
+import { database } from '../../firebase/firebase'
+import GlobalContextProps from '../../interface/GlobalContextProps'
+import WishList from '../../interface/WishList'
+import { GlobalContext } from '../../provider/GlobalProvider'
 import { ref, remove } from 'firebase/database'
 import React, { Dispatch, SetStateAction, useContext, useState } from 'react'
 import { Alert, Image, Text, TouchableOpacity, View, Share } from 'react-native'
 import { useNavigation } from "expo-router"
-import fetchUserWishlists from '@/utils/fetchUserWishlists'
+import fetchUserWishlists from '../../utils/fetchUserWishlists'
 interface ShareWishListInterface {
     wishListMetaData: WishList,
     setWishListMetaData: Dispatch<SetStateAction<WishList>>

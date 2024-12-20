@@ -1,5 +1,5 @@
 
-import WishList from '@/interface/WishList'
+import WishList from '../../interface/WishList'
 import * as DocumentPicker from 'expo-document-picker'
 const pickImage = (wish: WishList, setWish: (wish: WishList) => void) => {
     DocumentPicker.getDocumentAsync({ type: 'image/*' }).then(async result => {

@@ -1,10 +1,5 @@
-import Tab from '@/components/calendar/Tab';
-import CheckBox from '@/components/CheckBox';
-import TaskItem from '@/components/common/TaskItem';
-import CustomButton from '@/components/CustomButton';
-import WishList, { WishItem } from '@/interface/WishList';
-import fetchWishList from '@/utils/fetchWishList';
-import { useEffect, useState } from 'react';
+import Tab from '../../components/calendar/Tab';
+import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -13,7 +8,7 @@ const Calender = () => {
   const [selectedDate, setSelectedDate] = useState(today);
   const [selectedTab, setSelectedTab] = useState("checklist")
   const handleDayPress = (day: { dateString: string }) => {
-    setSelectedDate(day.dateString); // Updates the selected date
+    setSelectedDate(day.dateString)
   };
 
   return (
@@ -55,18 +50,18 @@ const Calender = () => {
             Checklist
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {setSelectedTab("task")}} activeOpacity={0.8} style={selectedTab==="task" && { backgroundColor: "#fff", borderColor: "#fff" }} className='border-[3px] border-secondary-100 rounded-[4px] px-4 h-[35px] justify-center'>
+        {/* <TouchableOpacity onPress={() => {setSelectedTab("task")}} activeOpacity={0.8} style={selectedTab==="task" && { backgroundColor: "#fff", borderColor: "#fff" }} className='border-[3px] border-secondary-100 rounded-[4px] px-4 h-[35px] justify-center'>
           <Text className='text-secondary font-pbold text-[16px] leading-[32px]' style={selectedTab==="task" && { color: "#161622" }}>
             Task
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <TouchableOpacity onPress={() => {setSelectedTab("transaction")}} activeOpacity={0.8} style={selectedTab==="transaction" && { backgroundColor: "#fff", borderColor: "#fff" }} className='border-[3px] border-secondary-100 rounded-[4px] px-4 h-[35px] justify-center'>
           <Text className='text-secondary font-pbold text-[16px] leading-[32px]' style={selectedTab==="transaction" && { color: "#161622" }}>
             Transaction
           </Text>
         </TouchableOpacity>
       </View>
-     <Tab selectedTab={selectedTab}/>
+     <Tab selectedDate={selectedDate.split("-").reverse().join("-")} selectedTab={selectedTab}/>
     </SafeAreaView>
   )
 }

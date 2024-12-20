@@ -25,5 +25,11 @@ function getDate(inputDate: string): { day: number; month: number; year: number 
     const [day, month, year] = datePart.split('-').map(Number)
     return { day, month, year }
 }
+export function getMonthAndYear(inputDate: string) {
+    var year = parseInt(inputDate.split("-")[0])
+    var month = parseInt(inputDate.split("-")[1])
+    var date = parseInt(inputDate.split("-")[2])
+    return { year, month, date }
+}
 export default formatDate
-export { getDate }
+export { getDate, months }

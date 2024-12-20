@@ -35,6 +35,7 @@ export default function RootLayout() {
         <Stack.Screen name='(auth)' options={{ headerShown: false }} />
         <Stack.Screen name='create/index' options={{ headerShown: false }} />
         <Stack.Screen name='wish/[id]' options={{ headerShown: false }} />
+        <Stack.Screen name='transaction/[id]' options={{ headerShown: false }} />
       </Stack>
       <StatusBar backgroundColor="#161622" style="light" />
     </GlobalProvider>

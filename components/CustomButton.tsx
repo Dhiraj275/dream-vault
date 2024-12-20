@@ -17,7 +17,7 @@ const CustomButton = ({ text, containerStyle, onPress, textStyle, isLoading }: B
       onPress={onPress}
       disabled={isLoading}
     >
-      <Text className={`text-primary font-psemibold text-lg ${textStyle}`}>{text}</Text>
+      <Text className={`text-primary font-psemibold text-[18px] leading-[26px] ${textStyle}`}>{text}</Text>
     </TouchableOpacity>
   )
 }

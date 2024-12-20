@@ -23,6 +23,10 @@ import transactionsIcon from '../assets/icons/transactions.png'
 import inIcon from '../assets/icons/in-icon.png'
 import outIcon from '../assets/icons/out-icon.png'
 import arrowLeft from '../assets/icons/arrow-left.png'
+import cloudFilled from '../assets/icons/cloud-filled.png'
+import smsIcon from '../assets/icons/sms.png'
+import filtersIcon from '../assets/icons/filters.png'
+
 export default {
   play,
   bookmark,
@@ -48,5 +52,8 @@ export default {
   transactionsIcon,
   inIcon,
   outIcon,
-  arrowLeft
+  arrowLeft,
+  cloudFilled,
+  smsIcon,
+  filtersIcon
 };

@@ -1,6 +1,6 @@
-import Backdrop from '@/components/common/Backdrop'
-import GlobalContextProps from '@/interface/GlobalContextProps'
-import { GlobalContext } from '@/provider/GlobalProvider'
+import Backdrop from '../../components/common/Backdrop'
+import GlobalContextProps from '../../interface/GlobalContextProps'
+import { GlobalContext } from '../../provider/GlobalProvider'
 import React, { Dispatch, SetStateAction, useContext } from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 

@@ -77,20 +77,6 @@ const RootLayout = () => {
         }}
       />
       <Tabs.Screen
-        name='friends'
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ focused, color }) => (
-            <TabIcon
-              name={"Friends"}
-              focused={focused}
-              color={color}
-              icon={icons.friends}
-            />
-          )
-        }}
-      />
-      <Tabs.Screen
         name='profile'
         options={{
           headerShown: false,

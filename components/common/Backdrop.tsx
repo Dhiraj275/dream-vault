@@ -15,7 +15,7 @@ const Backdrop = ({ children, open, setOpen }: BackdropProps) => {
         return (
             <View style={styles.popup}>
                 <TouchableOpacity activeOpacity={0.9} onPress={() => setOpen(false)} style={styles.backdrop}></TouchableOpacity>
-                <View style={styles.dialog}>
+                <View style={styles.dialog} className='bg-primary'>
                     {children}
                 </View>
             </View>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     dialog: {
         paddingVertical: 10,
         paddingHorizontal: 20,
-        backgroundColor: "#212121",
+        // backgroundColor: "#212121",
         borderRadius: 10,
         zIndex: 999,
         width: WIDTH - 50

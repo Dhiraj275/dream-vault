@@ -1,5 +1,5 @@
-import { database } from "@/firebase/firebase";
-import WishList, { WishItem } from "@/interface/WishList";
+import { database } from "../firebase/firebase";
+import WishList, { WishItem } from "../interface/WishList";
 import { onValue, ref } from "firebase/database";
 
 const fetchWishList = (id: string) => {

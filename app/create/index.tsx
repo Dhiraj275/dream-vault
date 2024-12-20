@@ -1,7 +1,7 @@
-import ProgressBar from '@/components/WishPage/ProgressBar'
-import GlobalContextProps from '@/interface/GlobalContextProps'
-import WishList, { WishItem } from '@/interface/WishList'
-import fetchUserWishlists from '@/utils/fetchUserWishlists'
+import ProgressBar from '../../components/WishPage/ProgressBar'
+import GlobalContextProps from '../../interface/GlobalContextProps'
+import WishList, { WishItem } from '../../interface/WishList'
+import fetchUserWishlists from '../../utils/fetchUserWishlists'
 import { ref as databaseRef, push, set } from 'firebase/database'
 import { ref, uploadBytes } from 'firebase/storage'
 import React, { useContext, useState } from 'react'
@@ -111,7 +111,10 @@ const Create = ({ title = "Travel", fulfilledWish = 0, totalWish = 0, color = "#
       context.setWishList(await fetchUserWishlists(context.user.uid))
     }
   };
-
+  const deleteWishItem = async (id: string | null, index: number) => {
+    const wishListTemp = wishList.filter((_, i) => i !== index);
+    setWishList(wishListTemp);
+  }
   return (
     <View className="flex-1 bg-primary">
       <ParallaxScrollView headerImage={
@@ -170,7 +173,7 @@ const Create = ({ title = "Travel", fulfilledWish = 0, totalWish = 0, color = "#
                     wishItem={item}
                     index={key}
                     handleCheck={handleCheck}
-                    deleteWishItem={() => { }}
+                    deleteWishItem={deleteWishItem}
                   />
                 ))
               }

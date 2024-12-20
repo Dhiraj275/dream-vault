@@ -1,5 +1,5 @@
-import { database, storage } from "@/firebase/firebase";
-import WishList, { WishItem } from "@/interface/WishList";
+import { database, storage } from "../firebase/firebase";
+import WishList, { WishItem } from "../interface/WishList";
 import { ref as databaseRef, push, set } from "firebase/database";
 import { ref, uploadBytes } from "firebase/storage";
 import { Dispatch, SetStateAction } from "react";

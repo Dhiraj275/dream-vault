@@ -1,7 +1,7 @@
 import { onValue, ref } from "firebase/database";
 import { database } from "../firebase/firebase";
 import fetchWishList from "./fetchWishList"; // Import the fetchWishList function
-import WishList from "@/interface/WishList";
+import WishList from "../interface/WishList";
 
 const fetchUserWishlists = async (userId: string): Promise<WishList[]> => {
   const userWishListRef = ref(database, `users/${userId}/wishlists`);
@@ -25,7 +25,6 @@ const fetchUserWishlists = async (userId: string): Promise<WishList[]> => {
             reject(error);
           }
         } else {
-          console.warn("No wishlists found for the user"); // Debug log
           resolve([]);
         }
       },

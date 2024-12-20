@@ -1,12 +1,12 @@
-import ProgressBar from '@/components/WishPage/ProgressBar'
-import WishListAction from '@/components/WishPage/WishListAction'
-import WishListWrap from '@/components/WishPage/WishListWrap'
-import { database } from '@/firebase/firebase'
-import GlobalContextProps from '@/interface/GlobalContextProps'
-import WishList, { WishItem } from '@/interface/WishList'
-import { GlobalContext } from '@/provider/GlobalProvider'
-import pickImage from '@/utils/pickImage'
-import updateWishList from '@/utils/updateWishList'
+import ProgressBar from '../../components/WishPage/ProgressBar'
+import WishListAction from '../../components/WishPage/WishListAction'
+import WishListWrap from '../../components/WishPage/WishListWrap'
+import { database } from '../../firebase/firebase'
+import GlobalContextProps from '../../interface/GlobalContextProps'
+import WishList, { WishItem } from '../../interface/WishList'
+import { GlobalContext } from '../../provider/GlobalProvider'
+import pickImage from '../../utils/pickImage'
+import updateWishList from '../../utils/updateWishList'
 import { useGlobalSearchParams } from 'expo-router'
 import { ref, remove, set } from 'firebase/database'
 import React, { useContext, useEffect, useState } from 'react'
@@ -14,7 +14,7 @@ import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import TaskItem from '../../components/common/TaskItem'
 import ParallaxScrollView from "../../components/ParallaxScrollView"
 import fetchWishList from "../../utils/fetchWishList"
-import { icons } from '@/constants'
+import { icons } from '../../constants'
 const WishListScreen = () => {
   const [wishList, setWishList] = useState<WishItem[]>([])
   const [filteredWishList, setFilteredWishList] = useState<WishItem[]>([])
@@ -125,7 +125,7 @@ const WishListScreen = () => {
             }
           } >
             <Image
-              source={{ uri: wishListMetaData.localImageURI ? wishListMetaData.localImageURI : wishListMetaData?.coverImage }}
+              source={{ uri: wishListMetaData.localImageURI ? wishListMetaData.localImageURI : wishListMetaData?.coverImage?wishListMetaData?.coverImage:"https://firebasestorage.googleapis.com/v0/b/dream-vault.appspot.com/o/placeholders%2Floading.gif?alt=media&token=e2be0818-f22b-4a90-a840-dad68de5cdad" }}
               className="w-full h-[255px]"
               resizeMode='cover'
             />
