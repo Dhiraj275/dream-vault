@@ -42,7 +42,7 @@ const WishComponent = ({ uri,
                     <View className="px-2 pr-5 py-4 flex-1">
                         <View className="flex-row items-center gap-2">
                             <Text className="text-white font-pbold text-xl">
-                                {title}
+                                {title.slice(0, 18)}{title.length>18&&"..."}
                             </Text>
                             <Image
                                 resizeMode='contain'
@@ -79,11 +79,6 @@ const WishComponent = ({ uri,
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <Image
-                        source={icons.share}
-                        className="h-6 w-6 absolute right-4 top-4"
-                        resizeMode='contain'
-                    />
                 </View>
             </View>
         )

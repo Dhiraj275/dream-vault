@@ -8,18 +8,22 @@ const allTransactionTags = [
   { name: "Groceries", color: "#C8E6C9" }, // Light Green
   { name: "Health", color: "#FFCCBC" }, // Light Coral
   { name: "Hostel Fees", color: "#FFE0B2" }, // Light Orange
+  { name: "Household", color: "#FFE0B2" }, // Light Orange
   { name: "Income", color: "#D1C4E9" }, // Lavender
   { name: "Lend", color: "#E1F5FE" }, // Light Sky Blue
   { name: "Meals", color: "#E1BEE7" }, // Light Purple
   { name: "Miscellaneous", color: "#FFF3E0" }, // Light Peach
   { name: "Returning Money", color: "#DCEDC8" }, // Light Lime
+  { name: "Room Rent", color: "#FFE0B2" }, // Light Orange
   { name: "Savings", color: "#C8FACD" }, // Light Mint
   { name: "Settlements", color: "#F3E5F5" }, // Light Violet
   { name: "Shopping", color: "#B2EBF2" }, // Light Cyan
   { name: "Sports", color: "#F8BBD0" }, // Light Pink
   { name: "Travel", color: "#BBDEFB" }, // Light Blue
   { name: "Utilities", color: "#B3E5FC" }, // Lighter Blue
+
 ];
+
 
 
 export default allTransactionTags

@@ -10,13 +10,18 @@ import { useNavigation } from "expo-router"
 import fetchUserWishlists from '../../utils/fetchUserWishlists'
 interface ShareWishListInterface {
     wishListMetaData: WishList,
-    setWishListMetaData: Dispatch<SetStateAction<WishList>>
+    setWishListMetaData: Dispatch<SetStateAction<WishList>>,
+    setIsBackedUp: Dispatch<SetStateAction<boolean>>
 }
 
-const WishListAction = ({ wishListMetaData, setWishListMetaData }: ShareWishListInterface) => {
+const WishListAction = ({ wishListMetaData, setWishListMetaData, setIsBackedUp }: ShareWishListInterface) => {
     const context = useContext(GlobalContext) as GlobalContextProps
     const navigation = useNavigation()
     const [open, setOpen] = useState<boolean>(false)
+    const hideWishList = () => {
+        setWishListMetaData({ ...wishListMetaData, isVisible: !wishListMetaData.isVisible })
+        setIsBackedUp(false)
+      }
     const togglePrivacy = () => {
         setWishListMetaData({
             ...wishListMetaData,
@@ -35,7 +40,7 @@ const WishListAction = ({ wishListMetaData, setWishListMetaData }: ShareWishList
                 {
                     text: 'Yes', onPress: () => {
                         remove(ref(database, `users/${context.user?.uid}/wishlists/${wishListMetaData.id}`)).then(
-                           async () => {
+                            async () => {
                                 if (context.user?.uid) {
                                     context.setWishList(await fetchUserWishlists(context.user?.uid))
                                 }
@@ -113,6 +118,13 @@ const WishListAction = ({ wishListMetaData, setWishListMetaData }: ShareWishList
                             className='px-2 py-[5px]'>
                             <Text className='font-psemibold text-[16px]'>
                                 Share
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={hideWishList}
+                            className='px-2 py-[5px]'>
+                            <Text className='font-psemibold text-[16px]'>
+                                {wishListMetaData.isVisible ? "Hide" : "Show"}
                             </Text>
                         </TouchableOpacity>
                         <TouchableOpacity

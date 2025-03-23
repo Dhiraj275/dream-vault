@@ -96,11 +96,11 @@ const Create = ({ title = "Travel", fulfilledWish = 0, totalWish = 0, color = "#
           ToastAndroid.SHORT,
           ToastAndroid.CENTER,
         );
-        Alert.alert("Wishlist created!", "Press OK to navigate to home",
+        Alert.alert("Wishlist created!", "Press OK to Back",
           [
             {
               text: 'OK',
-              onPress: () => router.navigate("/"),
+              onPress: () => router.back(),
               style: 'cancel',
             }]
         )

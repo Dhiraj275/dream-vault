@@ -10,16 +10,16 @@ import fetchUserWishlists from '../../utils/fetchUserWishlists'
 import CustomButton from '../CustomButton'
 import fetchCheckList from '../../utils/calendar/fetchChecklist'
 import ChecklistItem from '../../interface/Checklist'
-const CreateNewChecklist = ({ setEditMode }: { setEditMode: Dispatch<SetStateAction<boolean>> }) => {
+const CreateNewChecklist = ({ setEditMode, loadDataParent }: { setEditMode: Dispatch<SetStateAction<boolean>>, loadDataParent: ()=>void }) => {
     const [wishList, setWishList] = useState<ChecklistItem[]>([])
     const { user } = useContext(GlobalContext) as GlobalContextProps
     const context = useContext(GlobalContext) as GlobalContextProps;
-    useEffect(() => {
-        const loadData = async () => {
-            if (user?.uid) {
-                setWishList([...await fetchCheckList(user?.uid), { title: "", checked: false, id: null, checkedDates: [] }])
-            }
+    const loadData = async () => {
+        if (user?.uid) {
+            setWishList([...await fetchCheckList(user?.uid), { title: "", checked: false, id: null, checkedDates: [] }])
         }
+    }
+    useEffect(() => {
         loadData()
     }, [])
 
@@ -55,6 +55,7 @@ const CreateNewChecklist = ({ setEditMode }: { setEditMode: Dispatch<SetStateAct
             }
 
         })
+        loadDataParent()
         setEditMode(false)
     };
     const deleteWishItem = async (id: String | null, index: number) => {

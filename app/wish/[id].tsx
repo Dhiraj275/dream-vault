@@ -88,10 +88,7 @@ const WishListScreen = () => {
       setFilteredWishList(wishListTemp);
     }
   }
-  const hideWishList = () => {
-    setWishListMetaData({ ...wishListMetaData, isVisible: !wishListMetaData.isVisible })
-    setIsBackedUp(false)
-  }
+
   const toggleEditMode = () => {
     if (filteredWishList[filteredWishList.length - 1]?.title !== "" || !filteredWishList.length) {
       setFilteredWishList([...filteredWishList, { id: null, title: "", checked: false }])
@@ -153,6 +150,7 @@ const WishListScreen = () => {
               <WishListAction
                 wishListMetaData={wishListMetaData}
                 setWishListMetaData={setWishListMetaData}
+                setIsBackedUp={setIsBackedUp}
               />
             </View>
             <ProgressBar totalWish={wishListMetaData.totalWish || 0} fulfilledWish={wishListMetaData.fulfilledWish || 0} />
@@ -180,21 +178,7 @@ const WishListScreen = () => {
                   Edit
                 </Text>
               </TouchableOpacity>
-              {
-                editModeOn &&
-                <TouchableOpacity
-                  onPress={hideWishList}
-                  activeOpacity={0.8} className="h-[40px] mt-5 items-center justify-center px-[24px] bg-white rounded-full"
-                >
-                  <Text
-
-                    style={{ color: wishListMetaData?.color || '#000' }}
-                    className="font-psemibold text-[18px] leading-[25px]"
-                  >
-                    {wishListMetaData.isVisible ? "Hide" : "Show"}
-                  </Text>
-                </TouchableOpacity>
-              }
+            
             </View>
 
           </View>

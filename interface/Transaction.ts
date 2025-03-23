@@ -11,7 +11,8 @@ export interface Transaction {
     description?: string,
     senderName?: string
     recipientName?: string
-    tags?: string[]
+    tags?: string[],
+    upiReferenceId?: string | number ,
 }
 export interface SmsItem {
     _id: string;

@@ -14,6 +14,7 @@ var names: any = {
     "rajubhaigprajap": "Papa",
     "9574314091_ptye": "Saurabh"
 }
+const metaDataPattern = /Rs\s*(\d+\.\d{2})\s+debited\s+from\s+A\/C\s+XXXXXX\d+\s+and\s+credited\s+to\s+([\w\d@.]+)\s+UPI\s+Ref:(\d+)/;
 const parseDate = (dateString: string): Date => {
     const [datePart, timePart] = dateString.split(" ");
     const [day, month, year] = datePart.split("-").map(Number);
@@ -28,16 +29,33 @@ const fetchTransaction = async (uid?: string): Promise<Transaction[]> => {
 
     // Step 2: Extract SMS bodies and categorize transactions
     const transactionMap: Record<string, Transaction> = {}; // To store unique transactions
+
+    const transactionMetaData: any = {};
+    smsList.forEach((sms) => {
+        const body = sms.body;
+        if (body.includes("Ref:")) {
+            const match = body.match(metaDataPattern);
+            if (match) {
+                const transaction = {
+                    amount: parseFloat(match[1]),
+                    creditedTo: match[2],
+                    reference: match[3]
+                };
+                transactionMetaData[match[3]] = transaction
+            }
+        }
+    })
     smsList.forEach((sms) => {
         const body = sms.body;
 
         // Check if the SMS contains valid transaction details
-        if (body.includes("UPI/") && !body.includes("ઉપલબ્ધ") && body.includes("A/c ...")) {
-            const transaction = categorizeTransaction(body);
+        if (body.includes("UPI/") || body.includes("upi/") ) {
+            const transaction = categorizeTransaction(body, transactionMetaData);
             if (transaction) {
                 transactionMap[transaction.id] = transaction; // Use `id` as the key to ensure uniqueness
             }
         }
+
     });
 
     // Step 3: Fetch existing transactions from Firebase

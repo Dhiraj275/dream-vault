@@ -13,7 +13,8 @@ import { GlobalContext } from '../../provider/GlobalProvider';
 import { getMonthAndYear, months } from '../../utils/formatDate';
 import allTransactionTags from '../../utils/transactions/allTransactionTags';
 import { loadTransactions, today } from '../../utils/transactions/transactionUtils';
-
+import categorizeTransaction from '@/utils/transactions/categorizeTransaction';
+import trans from "../../data/dummyTransaction"
 const Transactions = () => {
   const { user } = useContext(GlobalContext) as GlobalContextProps;
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -25,7 +26,8 @@ const Transactions = () => {
     if (user?.uid) {
       setTransactionList(null)
       const { filteredTransactions, summary } = await loadTransactions(user.uid, selectedDate, selectedTags);
-      setTransactionList(filteredTransactions);
+      // setTransactionList(filteredTransactions);
+      setTransactionList(trans);
       setSummery(summary);
     }
   };
@@ -60,7 +62,7 @@ const Transactions = () => {
           selectedDate={selectedDate}
           months={months} // Replace with actual months
         />
-        <TouchableOpacity activeOpacity={0.8} onPress={()=>setFilterOpen(true)} className="flex-row">
+        <TouchableOpacity activeOpacity={0.8} onPress={() => setFilterOpen(true)} className="flex-row">
           <View className='flex-row outline-white outline-2 items-center px-2 py-1 rounded-md mt-3'>
             <Image
               source={icons.filtersIcon}
