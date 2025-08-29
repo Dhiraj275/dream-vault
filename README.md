@@ -1,50 +1,74 @@
-# Welcome to your Expo app 👋
+# DreamVault  
+<p align="center">
+  <a href="https://dhiraj.is-a.dev/videos/DreamVault_Promo_HD.mp4">
+    <img src="https://i.ibb.co/k2Sn48mn/Dream-Vault-Banner.png" alt="Watch the video" width="720">
+  </a>
+</p>
+<p align="center">
+  <a href="https://github.com/Dhiraj275/dream-vault/releases/download/Release/app-release.apk">
+    <img src="https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android" alt="Download APK">
+  </a>
+</p>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**DreamVault** is a personal productivity and financial tracking app built with **React Native (Expo)**, **TailwindCSS**, and **Firebase**.  
+It helps users stay on top of their **goals**, **habits**, and **transactions** — all in one place.  
 
-## Get started
+---
 
-1. Install dependencies
+## ✨ Features  
 
-   ```bash
-   npm install
-   ```
+### 🎯 Goals Tracking  
+- Simple **to-do style goal management**  
+- Add, update, and complete goals with ease  
 
-2. Start the app
+### 📅 Habit Tracking  
+- **Calendar-based habit tracking**  
+- Mark habits as completed on specific days  
+- **Analytics & insights** on habit performance  
 
-   ```bash
-    npx expo start
-   ```
+### 💰 Transaction Management *(Spotlight Feature)*  
+- Fetches and processes **bank transaction SMS** (automated parsing)  
+- Categorizes transactions as **debit** or **credit**  
+- Provides a **summary of money in/out**  
+- Users can add **custom tags & descriptions** to categorize transactions  
+- Transactions can be **backed up for safekeeping**  
 
-In the output, you'll find options to open the app in a
+### 👥 Multi-user Support  
+- Multiple users can create and manage their own data independently  
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠 Tech Stack  
 
-## Get a fresh project
+- **React Native (Expo)** – Cross-platform mobile development  
+- **TailwindCSS** – Fast and responsive UI styling  
+- **Firebase** – Authentication & real-time database for data storage  
+- **Local Device Access** – Parsing SMS for transaction insights  
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## ⚠️ Current Limitation  
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+The **transaction tracking feature** was originally designed to parse SMS messages from **Bank of Baroda (BOB)**.  
+Since BOB has recently updated its SMS format, the feature is **not functioning at the moment**.  
+However, the underlying implementation demonstrates **robust SMS parsing, data categorization, and financial analytics logic**, and can be adapted to other formats with minor updates.  
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🚀 Future Improvements  
+- Update SMS parsing to support new bank message formats  
+- Expand support for multiple banks  
+- Add advanced visualization for financial analytics  
+- Export options  
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 📌 Note  
 
-Join our community of developers creating universal apps.
+This project was originally built for **personal use**, but it demonstrates:  
+- **Practical problem-solving** (automating transaction tracking)  
+- **Cross-platform mobile development** with React Native  
+- **Data-driven features** (habit analytics, transaction summaries)  
+- **Scalable architecture** (multi-user support with Firebase)  
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+It is a **work-in-progress showcase project**, highlighting both technical implementation and product design thinking.  
